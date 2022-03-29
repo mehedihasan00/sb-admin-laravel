@@ -11,12 +11,12 @@
 <body>
     <div class="container">
         <div class="row student-info">
-            <div>
-                <span class="badge bg-success">with Laravel</span>
-                <h3 class="text-center">Student Registration</h3>
-            </div>
             <div class="col-md"></div>
             <div class="col-md-8 col-12">
+                <div>
+                    <span class="badge bg-success">with Laravel</span>
+                    <h3 class="text-center">Student Registration</h3>
+                </div>
             <form action="{{ route('store.user') }}" method="POST">
                 @csrf
                 <div class="row">
