@@ -10,13 +10,27 @@
 </head>
 <body>
     <div class="container">
+        @php
+            $LoggedUserId = $data["LoggedUserInfo"]->id;
+            $LoggedUserName = $data["LoggedUserInfo"]->name;
+            $LoggedUserEmail = $data["LoggedUserInfo"]->email;
+        @endphp
         <div class="row student-info">
             <div class="col-md"></div>
-            <div class="col-md-8 col-12">
+            <div class="col-md-8 col-12 form-background py-2">
                 <div>
-                    <span class="badge bg-success">with Laravel</span>
+                    <div class="d-flex justify-content-between">
+                        <span class="badge bg-success">with Laravel</span>
+                        <div class="badge bg-success">
+                            <span>Login As: </span><br>
+                            <span>ID: {{ $LoggedUserId }}</span><br>
+                            <span>Name: {{ $LoggedUserName }}</span>
+                        </div>
+                    </div>
                     <h3 class="text-center">Student Registration</h3>
                 </div>
+
+                <!-- print_r($data["LoggedUserInfo"]->id); -->
             <form action="{{ route('store.user') }}" method="POST">
                 @csrf
                 <div class="row">
@@ -91,7 +105,11 @@
                 </div>
             </form>
             </div>
-            <div class="col-md"></div>
+            <div class="col-md">
+                <div>
+                    <a href="{{ route('auth.logout') }}">Log out</a>
+                </div>
+            </div>
         </div>
         <div class="row mt-5">
             <div class="col-12">

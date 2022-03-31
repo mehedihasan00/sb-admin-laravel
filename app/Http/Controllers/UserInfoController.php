@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin;
 use App\Models\UserInfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -11,7 +12,8 @@ class UserInfoController extends Controller
     public function AllUser()
     {
         $userInfo  = UserInfo::all()->sortByDesc("id");
-        return view('user.index', compact('userInfo'));
+        $data = ['LoggedUserInfo' => Admin::where('id', '=', session('LoggedUser'))->first()];
+        return view('user.index', compact('userInfo', 'data'));
     }
     public function AddUser(Request $request)
     {
@@ -31,7 +33,8 @@ class UserInfoController extends Controller
     }
     public function Edit($id) {
         $userInfo = UserInfo::find($id);
-        return view('user.edit', compact('userInfo'));
+        $users = UserInfo::all();
+        return view('user.edit', compact('userInfo', 'users'));
     }
     public function Update(Request $request, $id) {
         $update = UserInfo::find($id)->update([
