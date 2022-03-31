@@ -15,13 +15,15 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="{{ asset('backend/assets/img/avater.png') }}" alt="" srcset="" style="height: 30px; width: 30px;">
-                John Doe
+                @if(isset($data))
+                {{ $data["LoggedUserInfo"]->name }}
+                @endif
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="#!">Settings</a></li>
                 <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                 <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" href="#!">Logout</a></li>
+                <li><a class="dropdown-item" href="{{ route('auth.logout') }}">Logout</a></li>
             </ul>
         </li>
     </ul>

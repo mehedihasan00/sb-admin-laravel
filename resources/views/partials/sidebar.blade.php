@@ -3,7 +3,7 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <!-- <div class="sb-sidenav-menu-heading">Core</div> -->
-                            <a class="nav-link" href="asset{{ url('admin/dashboard') }}">
+                            <a class="nav-link" href="{{ url('admin/dashboard') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
@@ -52,12 +52,12 @@
                                 </nav>
                             </div>
                             <!-- <div class="sb-sidenav-menu-heading">Forms</div> -->
-                            <a class="nav-link" href="form.html">
+                            <a class="nav-link" href="{{ url('admin/form') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Forms
                             </a>
                             <!-- <div class="sb-sidenav-menu-heading">Addons</div> -->
-                            <a class="nav-link" href="charts.html">
+                            <a class="nav-link"  href="{{ url('admin/chart') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Charts
                             </a>
@@ -65,11 +65,12 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Tables
                             </a>
-                            <a class="nav-link" href="add-user.html">
+                            <a class="nav-link" href="{{ url('admin/registration')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-user-plus"></i></div>
                                 Add User
                             </a>
-                            <a class="nav-link" href="#!">
+                            <!-- <a class="nav-link" href="{{ route('auth.logout') }}"> -->
+                            <a class="nav-link" onclick="logOut('{{ route('auth.logout') }}')" style="cursor: pointer">
                                 <div class="sb-nav-link-icon"><i class="fas fa-sign-out-alt"></i></div>
                                 Log Out
                             </a>

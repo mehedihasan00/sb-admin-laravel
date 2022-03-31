@@ -39,10 +39,14 @@ Route::get('auth/logout', [MainController::class, 'logout'])->name('auth.logout'
 // Middleware
 Route::group(['middleware'=>['AuthCheck']], function() {
     Route::get('/auth/login', [MainController::class, 'login'])->name('auth.login');
-    Route::get('auth/register', [MainController::class, 'register'])->name('auth.register');
+    // Route::get('auth/register', [MainController::class, 'register'])->name('auth.register');
     
     // Dashboard Route
     Route::get('/admin/dashboard', [HomeController::class, 'dashboard']);
+    Route::get('/admin/chart', [HomeController::class, 'chart']);
+    Route::get('/admin/registration', [HomeController::class, 'userRegistration']);
+    Route::get('/admin/form', [HomeController::class, 'form']);
+    Route::get('/admin/table', [HomeController::class, 'table']);
     // Route::get('admin/dashboard1', [MainController::class, 'dashboard1']);
     
     // User all route

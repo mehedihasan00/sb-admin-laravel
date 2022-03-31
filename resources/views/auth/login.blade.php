@@ -36,7 +36,7 @@
                     </div>
                     <button type="submit" class="btn btn-block btn-primary">Sign In</button>
                     <br>
-                    <a href="{{ route('auth.register') }}">I don't have an account, create new</a>
+                    
                 </form>
             </div>
         </div>
@@ -96,9 +96,7 @@
                                             </div>
                                         </form>
                                     </div>
-                                    <div class="card-footer text-center py-3">
-                                        <div class="small"><a href="{{ route('auth.register') }}">Need an account? Sign up!</a></div>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
