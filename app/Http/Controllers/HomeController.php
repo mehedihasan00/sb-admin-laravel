@@ -9,7 +9,9 @@ class HomeController extends Controller
 {
     public function dashboard() {
         $data = ['LoggedUserInfo' => Admin::where('id', '=', session('LoggedUser'))->first()];
-        return view('pages.admin.index', compact('data'));
+        $count = Admin::all();
+        $count = count($count);
+        return view('pages.admin.index', compact('data', 'count'));
     }
 
     public function chart() {

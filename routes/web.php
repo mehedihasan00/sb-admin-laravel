@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserInfoController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TempController;
 use Illuminate\Support\Facades\DB;
 /*
 |--------------------------------------------------------------------------
@@ -15,15 +16,17 @@ use Illuminate\Support\Facades\DB;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+// Frontend
+Route::get('/', [TempController::class, 'mainTemp']);
+
+
 
 // Dashboard Templating Route
-Route::get('/admin/chart', [HomeController::class, 'chart']);
-
-
 
 Route::post('/user/add', [UserInfoController::class, 'AddUser'])->name('store.user');
 Route::get('/user/edit/{id}', [UserInfoController::class, 'Edit']);
@@ -46,7 +49,7 @@ Route::group(['middleware'=>['AuthCheck']], function() {
     Route::get('/admin/chart', [HomeController::class, 'chart']);
     Route::get('/admin/registration', [HomeController::class, 'userRegistration']);
     Route::get('/admin/form', [HomeController::class, 'form']);
-    Route::get('/admin/table', [HomeController::class, 'table']);
+    Route::get('/admin/tables', [HomeController::class, 'table']);
     // Route::get('admin/dashboard1', [MainController::class, 'dashboard1']);
     
     // User all route

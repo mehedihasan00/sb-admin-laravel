@@ -37,7 +37,7 @@
             <div class="card bg-secondary text-white mb-4">
                 <div class="card-body">
                     <h5 class="card-title">Admins</h5>
-                    <p class="card-text">0</p>
+                    <p class="card-text">{{ $count }}</p>
                 </div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
                     <a class="small text-white stretched-link" href="#">View Details</a>

@@ -1,0 +1,411 @@
+  @extends('front.master_home')
+
+      <!-- About Us -->
+      @section('home_content')
+      <div id="#about" class="section-welcome my-2 my-md-3 px-3 mx-auto">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-12 col-md-6">
+              <h2 class="text-center mb-2 mb-md-3 section-heading">Welcome to Our Company</h2>
+              <p style="text-align: justify;">pretium, ex diam vehicula dolor, id sagittis ipsum risus id purus. Cras id ante efficitur, fringilla elit non, volutpat nulla. Proin volutpat, felis eu tincidunt rutrum, ligula eros dapibus diam, in mattis ipsum nisl ac arcu. Vestibulum fringilla, mi ac maximus malesuada, libero neque blandit odio, vel iaculis ligula magna elementum risus. Nulla nulla orci, blandit sit amet ligula ultrices, hendrerit vestibulum nisl. In a mauris cursus quam vehicula auctor eu ac metus.</p>    
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="about-img p-md-3 p-lg-5">
+                <img src="{{ asset('frontend/assets/img/about/about-1.jpg') }}" alt="About Image">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="service" class="section-services mb-md-5 px-md-3 mx-auto">
+        <div class="container">
+          <h2 class="text-center mb-2 mb-md-3 section-heading">Services</h2>
+          <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-2 mb-md-2 mb-lg-0">
+              <div class="card border-0 h-100" style="background-color: transparent;">
+                <div class="card-body icon-box">
+                  <div class="icon">
+                    <i class="fa-solid fa-money-check"></i>
+                  </div>
+                  <h4><a href="#!">ATM System Providing</a></h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-2 mb-md-2 mb-lg-0">
+              <div class="card border-0 h-100" style="background-color: transparent;">
+                <div class="card-body icon-box">
+                  <div class="icon">
+                    <i class="fa-solid fa-book-open"></i>
+                  </div>
+                  <h4><a href="#!">Online Marketing</a></h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-2 mb-md-2 mb-lg-0">
+              <div class="card border-0 h-100" style="background-color: transparent;">
+                <div class="card-body icon-box">
+                  <div class="icon">
+                    <i class="fa-solid fa-code"></i>
+                  </div>
+                  <h4><a href="#!">Coding, Bug Fixing</a></h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-2 mb-md-2 mb-lg-0">
+              <div class="card border-0 h-100" style="background-color: transparent;">
+                <div class="card-body icon-box">
+                  <div class="icon">
+                    <i class="fa-solid fa-table"></i>
+                  </div>
+                  <h4><a href="#!">Responsive Sites Design</a></h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="product" class="section-portfolio mb-3 mb-md-5 px-md-3 mx-auto">
+          <div id="portfolio" class="portfolio">
+            <div class="container" data-aos="fade-up">
+              <div class="section-title">
+                <h2 class="text-center section-heading">Our Product</h2>
+              </div>
+              <ul id="portfolio-flters" class="d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+                <li data-filter="*" class="filter-active">All</li>
+                <li data-filter=".filter-app">App</li>
+                <li data-filter=".filter-card">Card</li>
+                <li data-filter=".filter-web">Web</li>
+              </ul>
+              <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+                 <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                   <div class="portfolio-img"><img src="{{ asset('frontend/assets/img/portfolio/portfolio-1.jpg') }}" class="img-fluid" alt=""></div>
+                   <div class="portfolio-info">
+                     <h4>App 1</h4>
+                     <p>App</p>
+                     <a href="{{ asset('frontend/assets/img/portfolio/portfolio-1.jpg') }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="fa-solid fa-plus"></i></a>
+                     <a href="portfolio-details.html" class="details-link" title="More Details"><i class="fa-solid fa-link"></i></a>
+                   </div>
+                 </div>
+       
+                 <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                   <div class="portfolio-img"><img src="{{ asset('frontend/assets/img/portfolio/portfolio-2.jpg') }}" class="img-fluid" alt="" style="height: 280px;"></div>
+                   <div class="portfolio-info">
+                     <h4>Web 3</h4>
+                     <p>Web</p>
+                     <a href="{{ asset('frontend/assets/img/portfolio/portfolio-2.jpg') }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="fa-solid fa-plus"></i></a>
+                     <a href="portfolio-details.html" class="details-link" title="More Details"><i class="fa-solid fa-link"></i></a>
+                   </div>
+                 </div>
+       
+                 <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                   <div class="portfolio-img"><img src="{{ asset('frontend/assets/img/portfolio/portfolio-3.jpg') }}" class="img-fluid" alt=""></div>
+                   <div class="portfolio-info">
+                     <h4>App 2</h4>
+                     <p>App</p>
+                     <a href="{{ asset('frontend/assets/img/portfolio/portfolio-3.jpg') }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 2"><i class="fa-solid fa-plus"></i></a>
+                     <a href="portfolio-details.html" class="details-link" title="More Details"><i class="fa-solid fa-link"></i></a>
+                   </div>
+                 </div>
+       
+                 <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                   <div class="portfolio-img"><img src="{{ asset('frontend/assets/img/portfolio/portfolio-4.jpg') }}" class="img-fluid" alt=""></div>
+                   <div class="portfolio-info">
+                     <h4>Card 2</h4>
+                     <p>Card</p>
+                     <a href="{{ asset('frontend/assets/img/portfolio/portfolio-4.jpg') }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 2"><i class="fa-solid fa-plus"></i></a>
+                     <a href="portfolio-details.html" class="details-link" title="More Details"><i class="fa-solid fa-link"></i></a>
+                   </div>
+                 </div>
+       
+                 <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                   <div class="portfolio-img"><img src="{{ asset('frontend/assets/img/portfolio/portfolio-5.jpg') }}" class="img-fluid" alt=""></div>
+                   <div class="portfolio-info">
+                     <h4>Web 2</h4>
+                     <p>Web</p>
+                     <a href="{{ asset('frontend/assets/img/portfolio/portfolio-5.jpg') }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 2"><i class="fa-solid fa-plus"></i></a>
+                     <a href="portfolio-details.html" class="details-link" title="More Details"><i class="fa-solid fa-link"></i></a>
+                   </div>
+                 </div>
+       
+                 <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                   <div class="portfolio-img"><img src="{{ asset('frontend/assets/img/portfolio/portfolio-6.jpg') }}" class="img-fluid" alt=""></div>
+                   <div class="portfolio-info">
+                     <h4>App 3</h4>
+                     <p>App</p>
+                     <a href="{{ asset('frontend/assets/img/portfolio/portfolio-6.jpg') }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 3"><i class="fa-solid fa-plus"></i></a>
+                     <a href="portfolio-details.html" class="details-link" title="More Details"><i class="fa-solid fa-link"></i></a>
+                   </div>
+                 </div>
+       
+                 <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                   <div class="portfolio-img"><img src="{{ asset('frontend/assets/img/portfolio/portfolio-7.jpg') }}" class="img-fluid" alt=""></div>
+                   <div class="portfolio-info">
+                     <h4>Card 1</h4>
+                     <p>Card</p>
+                     <a href="{{ asset('frontend/assets/img/portfolio/portfolio-7.jpg') }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 1"><i class="fa-solid fa-plus"></i></a>
+                     <a href="portfolio-details.html" class="details-link" title="More Details"><i class="fa-solid fa-link"></i></a>
+                   </div>
+                 </div>
+       
+                 <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                   <div class="portfolio-img"><img src="{{ asset('frontend/assets/img/portfolio/portfolio-8.jpg') }}" class="img-fluid" alt=""></div>
+                   <div class="portfolio-info">
+                     <h4>Card 3</h4>
+                     <p>Card</p>
+                     <a href="{{ asset('frontend/assets/img/portfolio/portfolio-8.jpg') }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="fa-solid fa-plus"></i></a>
+                     <a href="portfolio-details.html" class="details-link" title="More Details"><i class="fa-solid fa-link"></i></a>
+                   </div>
+                 </div>
+       
+                 <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                   <div class="portfolio-img"><img src="{{ asset('frontend/assets/img/portfolio/portfolio-9.jpg') }}" class="img-fluid" alt=""></div>
+                   <div class="portfolio-info">
+                     <h4>Web 3</h4>
+                     <p>Web</p>
+                     <a href="{{ asset('frontend/assets/img/portfolio/portfolio-9.jpg') }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="fa-solid fa-plus"></i></a>
+                     <a href="portfolio-details.html" class="details-link" title="More Details"><i class="fa-solid fa-link"></i></a>
+                   </div>
+                 </div>
+               </div>
+            </div>
+        
+            </div><!-- End Portfolio Section -->
+      </div>
+      <div id="team" class="section-ourTeam mb-3 mb-md-5 px-md-3 mx-auto">
+        <div class="container">
+          <h2 class="text-center mb-2 mb-md-3 section-heading">Our Team</h2>
+          <div class="row">
+            <div class="col-lg-3 col-md-6 mb-2 mb-md-2 mb-lg-0">
+              <div class="card">
+                <div class="team-img">
+                  <img src="{{ asset('frontend/assets/img/team/team-1.jpg')}}" class="card-img-top" alt="...">
+                </div>
+                <div class="card-body text-center">
+                  <h5 class="card-title team-name">Walter White</h5>
+                  <h6 class="team-designation">Chief Executive Officer</h6>
+                  <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                  <div class="social">
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-2 mb-md-2 mb-lg-0">
+              <div class="card">
+                <div class="team-img">
+                  <img src="{{ asset('frontend/assets/img/team/team-2.jpg')}}" class="card-img-top" alt="...">
+                </div>
+                <div class="card-body text-center">
+                  <h5 class="card-title team-name">Sarah Jhonson</h5>
+                  <h6 class="team-designation">Product Manager</h6>
+                  <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                  <div class="social">
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-2 mb-md-2 mb-lg-0">
+              <div class="card">
+                <div class="team-img">
+                  <img src="{{ asset('frontend/assets/img/team/team-3.jpg')}}" class="card-img-top" alt="...">
+                </div>
+                <div class="card-body text-center">
+                  <h5 class="card-title team-name">William Anderson</h5>
+                  <h6 class="team-designation">CTO</h6>
+                  <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                  <div class="social">
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-2 mb-md-2 mb-lg-0">
+              <div class="card">
+                <div class="team-img">
+                  <img src="{{ asset('frontend/assets/img/team/team-4.jpg')}}" class="card-img-top" alt="...">
+                </div>
+                <div class="card-body text-center">
+                  <h5 class="card-title team-name">Amanda Jepson</h5>
+                  <h6 class="team-designation">Accountant</h6>
+                  <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                  <div class="social">
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="gallery" class="section-gallery mb-3 mb-md-5 px-md-3 mx-auto">
+        <div class="container">
+          <h2 class="text-center mb-2 mb-md-3 section-heading">Gallery</h2>
+            <div class="row">
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="card mod-card">
+                  <a href="{{ asset('frontend/assets/img/Gallery/thumb/gallery-1.jpg') }}" data-gallery="imageGallery" class="portfolio-lightbox preview-link" title="picture-1">
+                  <!-- <a href="/assets/img/Gallery/gallery-1.jpg" data-gallery="imageGallery" class="portfolio-lightbox preview-link" title="picture-1"> -->
+                    <img src="{{ asset('frontend/assets/img/Gallery/thumb/gallery-1.jpg') }}" class="card-img-top gallery-image-top" alt="...">
+                  </a>
+                  <div class="card-footer">
+                    <small class="text-muted">Working on a team</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="card mod-card">
+                  <a href="{{ asset('frontend/assets/img/Gallery/thumb/gallery-2.jpg') }}" data-gallery="imageGallery" class="portfolio-lightbox preview-link" title="picture-2">
+                    <img src="{{ asset('frontend/assets/img/Gallery/thumb/gallery-2.jpg') }}" class="card-img-top gallery-image-top" alt="...">
+                  </a>
+                  <div class="card-footer">
+                    <small class="text-muted">Discussing on a matter</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="card mod-card">
+                  <a href="{{ asset('frontend/assets/img/Gallery/thumb/gallery-3.jpg') }}" data-gallery="imageGallery" class="portfolio-lightbox preview-link" title="picture-3">
+                    <img src="{{ asset('frontend/assets/img/Gallery/thumb/gallery-1.jpg') }}" class="card-img-top gallery-image-top" alt="...">
+                  </a>
+                  <div class="card-footer">
+                    <small class="text-muted">Solving a big problem</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="card mod-card">
+                  <a href="{{ asset('frontend/assets/img/Gallery/thumb/gallery-4.jpg') }}" data-gallery="imageGallery" class="portfolio-lightbox preview-link" title="picture-4">
+                    <img src="{{ asset('frontend/assets/img/Gallery/thumb/gallery-4.jpg') }}" class="card-img-top gallery-image-top" alt="...">
+                  </a>
+                  <div class="card-footer">
+                    <small class="text-muted">Working on a team</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="card mod-card">
+                  <a href="{{ asset('frontend/assets/img/Gallery/thumb/gallery-5.jpg') }}" data-gallery="imageGallery" class="portfolio-lightbox preview-link" title="picture-5">
+                    <img src="{{ asset('frontend/assets/img/Gallery/thumb/gallery-5.jpg') }}" class="card-img-top gallery-image-top" alt="...">
+                  </a>
+                  <div class="card-footer">
+                    <small class="text-muted">Working on a team</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="card mod-card">
+                  <a href="{{ asset('frontend/assets/img/Gallery/thumb/gallery-6.jpg') }}" data-gallery="imageGallery" class="portfolio-lightbox preview-link" title="picture-6">
+                    <img src="{{ asset('frontend/assets/img/Gallery/thumb/gallery-6.jpg') }}" class="card-img-top gallery-image-top" alt="...">
+                  </a>
+                  <div class="card-footer">
+                    <small class="text-muted">Working on a team</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="card mod-card">
+                  <a href="{{ asset('frontend/assets/img/Gallery/thumb/gallery-7.jpg') }}" data-gallery="imageGallery" class="portfolio-lightbox preview-link" title="picture-6">
+                    <img src="{{ asset('frontend/assets/img/Gallery/thumb/gallery-7.jpg') }}" class="card-img-top gallery-image-top" alt="...">
+                  </a>
+                  <div class="card-footer">
+                    <small class="text-muted">Working on a team</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="card mod-card">
+                  <a href="{{ asset('frontend/assets/img/Gallery/thumb/gallery-8.jpg') }}" data-gallery="imageGallery" class="portfolio-lightbox preview-link" title="picture-6">
+                    <img src="{{ asset('frontend/assets/img/Gallery/thumb/gallery-8.jpg') }}" class="card-img-top gallery-image-top" alt="...">
+                  </a>
+                  <div class="card-footer">
+                    <small class="text-muted">Working on a team</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="card mod-card">
+                  <a href="{{ asset('frontend/assets/img/Gallery/thumb/gallery-9.jpg') }}" data-gallery="imageGallery" class="portfolio-lightbox preview-link" title="picture-6">
+                    <img src="{{ asset('frontend/assets/img/Gallery/thumb/gallery-9.jpg') }}" class="card-img-top gallery-image-top" alt="...">
+                  </a>
+                  <div class="card-footer">
+                    <small class="text-muted">Working on a team</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div> 
+      
+      <div id="contact" class="section-contact-us mb-3 mb-md-5 px-md-3 mx-auto pb-3 pb-md-5">
+        <div class="container">
+          <h2 class="text-center mb-2 mb-md-3 section-heading">Contact Us</h2>
+          <div class="row">
+            <div class="col-lg-6">
+              <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <label for="name">Your Name</label>
+                    <input type="text" name="name" class="form-control" id="name" required>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="name">Your Email</label>
+                    <input type="email" class="form-control" name="email" id="email" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="name">Subject</label>
+                  <input type="text" class="form-control" name="subject" id="subject" required>
+                </div>
+                <div class="form-group">
+                  <label for="name">Message</label>
+                  <textarea class="form-control" name="message" rows="10" required></textarea>
+                </div>
+                <div class="text-center"><button type="submit">Send Message</button></div>
+              </form>
+            </div>
+            <div class="col-lg-6 mt-5 mt-lg-0 d-flex align-items-stretch">
+              <div class="info">
+                <div class="address">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <h4>Location:</h4>
+                  <p>A108 Adam Street, New York, NY 535022</p>
+                </div>
+                <div class="email">
+                  <i class="fa-solid fa-envelope"></i>
+                  <h4>Email:</h4>
+                  <p>info@example.com</p>
+                </div>
+                <div class="phone">
+                  <i class="fa-solid fa-phone"></i>
+                  <h4>Call:</h4>
+                  <p>+1 5589 55488 55s</p>
+                </div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d542.6265308589916!2d90.36942316460342!3d23.80644762332969!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c0e9059d7751%3A0xcaaa6d1c52ebfd52!2z4Ka44Ka_4Kau4KeN4Kar4Kao4KeAIOCmleCmvuCmuOCnjeCmn-CmruCmvuCmsCDgppXgp4fgp5_gpr7gprA!5e0!3m2!1sbn!2sbd!4v1647239183127!5m2!1sbn!2sbd" frameborder="0" style="border:0; width: 100%; height: 239px;" allowfullscreen="" loading="lazy"></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      @endsection
+  
