@@ -54,6 +54,13 @@
               <li class="nav-item nav-mod-item">
                 <a class="nav-link nav-mod-link hover" href="#contact">Contact Us</a>
               </li>
+              @if(session('LoggedUser'))
+                <li class="nav-item nav-mod-item">
+                    <a class="nav-link nav-mod-link" href="{{ asset(url('admin/dashboard')) }}">
+                        <span class="badge bg-success">Dashboard</span>
+                    </a>
+                </li>
+              @endif
             </ul>
           </div>
         </div>

@@ -12,6 +12,11 @@
     </span>
     <!-- Navbar-->
     <ul class="navbar-nav ms-auto ms-md-auto me-3 me-lg-4">
+        @if(session('LoggedUser'))
+        <li class="nav-item dropdown">
+            <a href="">{{ session('LoggedUser') }}</a>
+        </li>
+        @endif
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="{{ asset('backend/assets/img/avater.png') }}" alt="" srcset="" style="height: 30px; width: 30px;">

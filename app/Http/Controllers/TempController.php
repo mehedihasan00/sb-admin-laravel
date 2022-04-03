@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class TempController extends Controller
 {
     public function mainTemp() {
-        return view('front.home');
+        return view('pages.website.home');
     }
 }

@@ -5,6 +5,7 @@ use App\Http\Controllers\UserInfoController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TempController;
+use App\Http\Controllers\StoreController;
 use Illuminate\Support\Facades\DB;
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,10 @@ Route::post('auth/check', [MainController::class, 'check'])->name('auth.check');
 Route::get('auth/logout', [MainController::class, 'logout'])->name('auth.logout');
 
 
+// route for uploads
+Route::post('/home/update', [StoreController::class, 'homeView'])->name('store.home');
+// Route::get('/home/all', [StoreController::class, 'AllContent'])->name('store.all');
+
 // Middleware
 Route::group(['middleware'=>['AuthCheck']], function() {
     Route::get('/auth/login', [MainController::class, 'login'])->name('auth.login');
@@ -46,6 +51,7 @@ Route::group(['middleware'=>['AuthCheck']], function() {
     
     // Dashboard Route
     Route::get('/admin/dashboard', [HomeController::class, 'dashboard']);
+    Route::get('/admin/editContent', [HomeController::class, 'edit_content']);
     Route::get('/admin/chart', [HomeController::class, 'chart']);
     Route::get('/admin/registration', [HomeController::class, 'userRegistration']);
     Route::get('/admin/form', [HomeController::class, 'form']);

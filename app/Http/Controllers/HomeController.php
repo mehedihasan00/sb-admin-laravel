@@ -14,6 +14,11 @@ class HomeController extends Controller
         return view('pages.admin.index', compact('data', 'count'));
     }
 
+    public function edit_content() {
+        $data = ['LoggedUserInfo' => Admin::where('id', '=', session('LoggedUser'))->first()];
+        return view('pages.admin.edit_content', compact('data'));
+    }
+
     public function chart() {
         $data = ['LoggedUserInfo' => Admin::where('id', '=', session('LoggedUser'))->first()];
         return view('pages.admin.chart', compact('data'));
