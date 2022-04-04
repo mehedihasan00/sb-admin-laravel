@@ -11787,3 +11787,21 @@ body {
 .form-reg-lebel {
   margin-bottom: 0.1rem;
 }
+
+/* Edit Content page */
+.card-body strong {
+  color: #a52a2a;
+}
+.link-row label {
+  color: #f58e04;
+}
+.btn-mod-content-submit {
+  color: #fff;
+  background-color: #a52a2a;
+  border-color: #a52a2a;
+}
+.btn-mod-content-submit:hover {
+  color: #fff;
+  background-color: #760303;
+  border-color: #760303;
+}

@@ -1,6 +1,6 @@
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
     <!-- Navbar Brand-->
-    <a class="navbar-brand ps-3" href="index.html">Start Bootstrap</a>
+    <a class="navbar-brand ps-3" href="index.html" style="font-size: 1rem">RS COMPUTER SOLUTION</a>
     <!-- Sidebar Toggle-->
     <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
     <!-- Navbar Search-->
@@ -12,11 +12,11 @@
     </span>
     <!-- Navbar-->
     <ul class="navbar-nav ms-auto ms-md-auto me-3 me-lg-4">
-        @if(session('LoggedUser'))
+        <!-- @if(session('LoggedUser'))
         <li class="nav-item dropdown">
             <a href="">{{ session('LoggedUser') }}</a>
         </li>
-        @endif
+        @endif -->
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="{{ asset('backend/assets/img/avater.png') }}" alt="" srcset="" style="height: 30px; width: 30px;">
