@@ -41,8 +41,9 @@ Route::get('auth/logout', [MainController::class, 'logout'])->name('auth.logout'
 
 
 // route for uploads
-Route::post('/home/update', [StoreController::class, 'homeView'])->name('store.home');
 // Route::get('/home/all', [StoreController::class, 'AllContent'])->name('store.all');
+// Call this route from admin dashboard routes
+Route::post('/home/update/{id}', [StoreController::class, 'homeViewUpdate']);
 
 // Middleware
 Route::group(['middleware'=>['AuthCheck']], function() {

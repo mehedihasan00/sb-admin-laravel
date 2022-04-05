@@ -2,6 +2,11 @@
 
       <!-- About Us -->
       @section('home_content')
+      @php
+          echo($firstContents[0]);
+          $content = $firstContents[0];
+          echo $content;
+        @endphp
       <div id="slider" class="slider">
         <div class="row">
           <div class="col-md-8 col-12 p-height">
@@ -462,6 +467,8 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="newSection">
       </div>
       @endsection
   

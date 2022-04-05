@@ -5,7 +5,7 @@
         <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
         <li class="breadcrumb-item active">Edit Contents</li>
     </ol>
-    <form action="{{ route('store.home') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ url('/home/update/'.'1') }}" method="POST" enctype="multipart/form-data">
         @if(Session::get('success'))
             <div class="alert alert-success">
                 {{ Session::get('success') }}
@@ -33,8 +33,8 @@
                     <div class="mb-3">
                         <label for="companyLogo" class="form-label"><strong>Company Logo</strong></label>
                         <input type="file" name="companyLogo" class="form-control form-control-sm" id="companyLogo" aria-describedby="companyLogo" accept="image/*" onchange="loadFile(event)">
+                        <span class="text-danger">@error('companyLogo') {{ $message }} @enderror</span>
                         <img id="output1" style="display: none; max-width: 140px; max-height: 120px; padding-top: 0.5rem"/>
-                        <span class="text-danger">@error('company_logo') {{ $message }} @enderror</span>
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
@@ -49,8 +49,8 @@
                     <div class="mb-3">
                         <label for="aboutCompany" class="form-label"><strong>About Our Company</strong></label>
                         <textarea name="aboutCompany" class="form-control" id="aboutCompany" rows="3"></textarea>
-                        <span class="text-danger">@error('aboutCompany') {{ $message }} @enderror</span>
                     </div>
+                    <span class="text-danger">@error('aboutCompany') {{ $message }} @enderror</span>
                 </div>
                 <div class="col-12 col-md-6">
                     <div class="mb-3">
@@ -64,25 +64,29 @@
                     <div class="mb-1 row link-row">
                         <label for="facebookLink" class="col-sm-3 col-form-label">Facebook Link</label>
                         <div class="col-sm-9 d-flex align-items-center">
-                            <input type="text" name="facebokLink" class="form-control form-control-sm" id="facebookLink">
+                            <input type="text" name="facebookLink" class="form-control form-control-sm" id="facebookLink">
+                            <span class="ps-1 text-danger">@error('facebookLink') {{ $message }} @enderror</span>
                         </div>
                     </div>
                     <div class="mb-1 row link-row">
                         <label for="linkedInLink" class="col-sm-3 col-form-label">LinkedIn Link</label>
                         <div class="col-sm-9 d-flex align-items-center">
                             <input type="text" name="linkedInLink" class="form-control form-control-sm" id="linkedInLink">
+                            <span class="ps-1 text-danger">@error('linkedInLink') {{ $message }} @enderror</span>
                         </div>
                     </div>
                     <div class="mb-1 row link-row">
                         <label for="twitterLink" class="col-sm-3 col-form-label">Twitter Link</label>
                         <div class="col-sm-9 d-flex align-items-center">
                             <input type="text" name="twitterLink" class="form-control form-control-sm" id="twitterLink">
+                            <span class="ps-1 text-danger">@error('twitterLink') {{ $message }} @enderror</span>
                         </div>
                     </div>
                     <div class="mb-1 row link-row">
                         <label for="instagramLink" class="col-sm-3 col-form-label">Instagram Link</label>
                         <div class="col-sm-9 d-flex align-items-center">
                             <input type="text" name="instagramLink" class="form-control form-control-sm" id="instagramLink">
+                            <span class="ps-1 text-danger">@error('instagramLink') {{ $message }} @enderror</span>
                         </div>
                     </div>
                 </div>
