@@ -3,7 +3,7 @@
 <div class="container-fluid px-4">
     <ol class="breadcrumb my-2 nav-path">
         <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-        <li class="breadcrumb-item active">Edit Contents</li>
+        <li class="breadcrumb-item active">Company Contents</li>
     </ol>
     <form action="{{ url('/home/update/'.'1') }}" method="POST" enctype="multipart/form-data">
         @if(Session::get('success'))

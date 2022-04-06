@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\CompanyInfo;
+use App\Models\Slider;
 use Illuminate\Support\Carbon;
 
 
@@ -14,8 +15,20 @@ class StoreController extends Controller
         return $contents;
     }
 
-    public function sliderUpdate(Request $request) {
-        return $request;
+    public function sliderInsert(Request $request) {
+        Slider::insert([
+            // 'name' => $request->name,
+            // 'father_name' => $request->father_name,
+            // 'mother_name' => $request->mother_name,
+            // 'class' => $request->class,
+            // 'student_id' => $request->student_id,
+            // 'email' => $request->email,
+            // 'district' => $request->district,
+            // 'phone_number' => $request->phone_number,
+            // 'address' => $request->address,
+            // 'created_at' => Carbon::now()
+        ]);
+        return Redirect()->back()->with('success', 'User inserted!');
     }
 
 

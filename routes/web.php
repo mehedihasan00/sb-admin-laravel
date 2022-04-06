@@ -44,7 +44,7 @@ Route::get('auth/logout', [MainController::class, 'logout'])->name('auth.logout'
 // Route::get('/home/all', [StoreController::class, 'AllContent'])->name('store.all');
 // Call this route from admin dashboard routes
 Route::post('/home/update/{id}', [StoreController::class, 'homeViewUpdate']);
-Route::post('/slider/update/{id}', [StoreController::class, 'sliderUpdate']);
+Route::post('/slider/insert/{id}', [StoreController::class, 'sliderInsert']);
 
 // Middleware
 Route::group(['middleware'=>['AuthCheck']], function() {
