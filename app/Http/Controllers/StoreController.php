@@ -22,7 +22,7 @@ class StoreController extends Controller
         $sliderImage_nameGen = hexdec(uniqid());
         $sliderImage_imgExt = strtolower($sliderImage->getClientOriginalExtension());
         $sliderImage_imgName = $sliderImage_nameGen. '.' . $sliderImage_imgExt;
-        $sliderImage_upLocation = 'frontend/assets/img/upload/';
+        $sliderImage_upLocation = 'frontend/assets/img/upload/slider/';
         $sliderImage_lastImg = $sliderImage_upLocation.$sliderImage_imgName;
         $sliderImage->move($sliderImage_upLocation, $sliderImage_imgName);
 

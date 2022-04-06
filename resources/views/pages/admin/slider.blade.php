@@ -35,8 +35,8 @@
                         <div class="mb-3">
                             <label for="sliderStatus" class="form-label"><strong>Slider Status</strong></label>
                             <select name="sliderStatus" class="form-select form-select-sm" aria-label="Default select sliderStatus" id="sliderStatus">
-                                <option selected>On</option>
-                                <option value="off">off</option>
+                                <option value="1">On</option>
+                                <option value="0">off</option>
                             </select>
                             <span class="text-danger">@error('sliderStatus') {{ $message }} @enderror</span>
                         </div>    

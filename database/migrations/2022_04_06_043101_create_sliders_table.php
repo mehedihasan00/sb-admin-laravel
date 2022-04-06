@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('sliderTitle');
             $table->string('sliderImage');
-            $table->string('sliderStatus');
+            $table->boolean('sliderStatus');
             $table->timestamps();
         });
     }

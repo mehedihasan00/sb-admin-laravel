@@ -49,6 +49,7 @@ Route::post('category/insert', [StoreController::class, 'categoryInsert'])->name
 Route::get('category/edit/{id}', [StoreController::class, 'categoryEdit'])->name('edit.category');
 Route::get('category/delete/{id}', [StoreController::class, 'categoryDelete']);
 // Slider Insert part
+Route::get('slider/all', [SliderController::class, 'slider'])->name('slider.all');
 Route::post('slider/insert', [StoreController::class, 'sliderInsert'])->name('store.slider');
 
 // Middleware
