@@ -11808,6 +11808,7 @@ body {
 
 /* Layouts/edit slider page */
 .card-mod-back {
+    padding: 0.3rem 1rem;
     background-color: #0b5ed7;
 }
 .add-slider {
@@ -11820,22 +11821,43 @@ body {
    margin-top: 3rem; 
 } */
 .slider-list table th, .slider-list table td {
-  padding-left: 1.2rem;
-  padding-right: 1.2rem;
-}
-.category-list table th, .category-list table td {
   padding-left: 1rem;
   padding-right: 1rem;
 }
-.category-list table th:first-child, .category-list table td:first-child {
-  padding-left: 0;
+.slider-list table th:last-child, .slider-list table td:last-child {
+    padding: 0.3rem 0.25rem 0.25rem;
 }
-.product-list table th, .product-list table td {
+@media only screen and (max-width: 992px) {
+    .slider-list table th, .slider-list table td {
+        padding-left: 3.5rem;
+        padding-right: 3.5rem;
+    }
+}
+/* Category Change */
+.add-category {
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 0;
+}
+.category-list table th, .category-list table td {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
-.product-list table th:first-child, .product-list table td:first-child {
-  padding-left: 0;
+.category-list table th:last-child, .category-list table td:last-child {
+    padding: 0.3rem 0.25rem 0.25rem;
+}
+@media only screen and (max-width: 992px) {
+    .category-list table th, .category-list table td {
+        padding-left: 3.5rem;
+        padding-right: 3.5rem;
+    }
+}
+
+/*Product Information and Insertion*/
+.product-list table th, .product-list table td {
+  padding-left: 3.1rem;
+  padding-right: 3.1rem;
 }
 
 /* This is multiple image classes */

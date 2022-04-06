@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\CompanyInfo;
+use App\Models\Category;
 use App\Models\Slider;
 use Illuminate\Support\Carbon;
 
@@ -16,19 +17,23 @@ class StoreController extends Controller
     }
 
     public function sliderInsert(Request $request) {
+
+        $sliderImage = $request->file('sliderImage');
+        $sliderImage_nameGen = hexdec(uniqid());
+        $sliderImage_imgExt = strtolower($sliderImage->getClientOriginalExtension());
+        $sliderImage_imgName = $sliderImage_nameGen. '.' . $sliderImage_imgExt;
+        $sliderImage_upLocation = 'frontend/assets/img/upload/';
+        $sliderImage_lastImg = $sliderImage_upLocation.$sliderImage_imgName;
+        $sliderImage->move($sliderImage_upLocation, $sliderImage_imgName);
+
         Slider::insert([
-            // 'name' => $request->name,
-            // 'father_name' => $request->father_name,
-            // 'mother_name' => $request->mother_name,
-            // 'class' => $request->class,
-            // 'student_id' => $request->student_id,
-            // 'email' => $request->email,
-            // 'district' => $request->district,
-            // 'phone_number' => $request->phone_number,
-            // 'address' => $request->address,
-            // 'created_at' => Carbon::now()
+            'sliderTitle' => $request->sliderTitle,
+            'sliderImage' => $sliderImage_lastImg,
+            'sliderStatus' => $request->sliderStatus,
+            'created_at' => Carbon::now()
         ]);
-        return Redirect()->back()->with('success', 'User inserted!');
+        
+        return Redirect()->back()->with('success', 'Slider inserted!');
     }
 
 
@@ -92,5 +97,19 @@ class StoreController extends Controller
             'updated_at' => Carbon::now(),
         ]);
         return $request ;
+    }
+    public function categoryInsert(Request $request) {
+        $validatedData = $request->validate([
+            'categoryName' => 'required|min:3'
+        ]);
+        Category::insert([
+            "categoryName" => $request->categoryName,
+            "created_at" => Carbon::now()
+        ]);
+        return redirect()->back()->with("success", "Category Insertion");
+    }
+    public function categoryDelete($id) {
+        Category::find($id)->delete();
+        return Redirect()->back();
     }
 }

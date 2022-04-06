@@ -44,7 +44,12 @@ Route::get('auth/logout', [MainController::class, 'logout'])->name('auth.logout'
 // Route::get('/home/all', [StoreController::class, 'AllContent'])->name('store.all');
 // Call this route from admin dashboard routes
 Route::post('/home/update/{id}', [StoreController::class, 'homeViewUpdate']);
-Route::post('/slider/insert/{id}', [StoreController::class, 'sliderInsert']);
+// Category Crud Route
+Route::post('category/insert', [StoreController::class, 'categoryInsert'])->name('store.category');
+Route::get('category/edit/{id}', [StoreController::class, 'categoryEdit'])->name('edit.category');
+Route::get('category/delete/{id}', [StoreController::class, 'categoryDelete']);
+// Slider Insert part
+Route::post('slider/insert', [StoreController::class, 'sliderInsert'])->name('store.slider');
 
 // Middleware
 Route::group(['middleware'=>['AuthCheck']], function() {
@@ -54,7 +59,7 @@ Route::group(['middleware'=>['AuthCheck']], function() {
     // Dashboard Route
     Route::get('/admin/dashboard', [HomeController::class, 'dashboard']);
     Route::get('/admin/editContent', [HomeController::class, 'edit_content']);
-    Route::get('/admin/editSlider', [HomeController::class, 'edit_slider']);
+    Route::get('/admin/slider', [HomeController::class, 'slider']);
     Route::get('/admin/category', [HomeController::class, 'category']);
     Route::get('/admin/product', [HomeController::class, 'product']);
     Route::get('/admin/chart', [HomeController::class, 'chart']);

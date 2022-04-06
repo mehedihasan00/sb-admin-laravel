@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Admin;
 use App\Models\CompanyInfo;
+use App\Models\category;
 
 class HomeController extends Controller
 {
@@ -22,14 +23,15 @@ class HomeController extends Controller
         return view('pages.admin.edit_content', compact('data', 'companyInfo'));
     }
 
-    public function edit_slider() {
-        return view('pages.admin.edit_slider');
+    public function slider() {
+        return view('pages.admin.slider');
     }
     public function product() {
         return view('pages.admin.product');
     }
     public function category() {
-        return view('pages.admin.category');
+        $categories = Category::orderBy('id', 'DESC')->get();
+        return view('pages.admin.category', compact('categories'));
     }
 
     public function chart() {

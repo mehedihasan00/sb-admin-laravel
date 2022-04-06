@@ -6,45 +6,12 @@
         <li class="breadcrumb-item active">Add Slider</li>
     </ol>
     <div class="row">
-        <div class="col-12 col-lg-6">
-            <div class="slider-list">
-                <div class="card">
-                    <div class="card-header card-mod-back">
-                        <h5 class="add-slider">Slider List</h4>
-                    </div>
-                    <div class="card-body b-card-body bg-light rounded px-2 px-md-3 py-1 py-md-1" style="font-size: 0.9rem">
-                        <table style="font-size: 0.8rem">
-                            <thead>
-                                <tr>
-                                    <th>SL</th>
-                                    <th>Slider Title</th>
-                                    <th>Slider Image</th>
-                                    <th>Slider Status</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>System Architect</td>
-                                    <td>fasdfsafsd</td>
-                                    <td>On</td>
-                                    <td style="padding: 0.3rem 0.25rem 0.25rem;">
-                                        <button type="button" class="d-inline btn btn-primary btn-sm b-btn"><i class="fas fa-user-edit"></i></button>
-                                        <button type="button" class="d-inline btn btn-danger btn-sm b-btn"><i class="fas fa-trash"></i></button>
-                                    </td>
-                                </tr>
-                            </tbody>    
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-lg-6">
-            <form action="{{ url('/slider/insert/'.'1') }}" method="POST" enctype="multipart/form-data">
+        <div class="col-12 col-lg-6 mb-md-3">
+            <form action="{{ url('slider/insert') }}" method="POST" enctype="multipart/form-data">
                 @if(Session::get('success'))
-                    <div class="alert alert-success">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
                         {{ Session::get('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
                 @csrf
@@ -80,6 +47,41 @@
                     </div>
                 </div>           
             </form>
+        </div>
+        <div class="col-12 col-lg-6">
+            <div class="slider-list">
+                <div class="card">
+                    <div class="card-header card-mod-back">
+                        <h5 class="add-slider">Slider List</h4>
+                    </div>
+                    <div class="card-body b-card-body bg-light rounded px-2 px-md-3 py-1 py-md-1" style="font-size: 0.9rem">
+                        <table style="font-size: 0.8rem">
+                            <thead>
+                                <tr>
+                                    <th>SL</th>
+                                    <th>Slider Title</th>
+                                    <th>Slider Image</th>
+                                    <th>Slider Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>System Architect</td>
+                                    <td><img src="{{ asset('C:\xampp\tmp\php82FA.tmp') }}" alt=""></td>
+                                    <td>On</td>
+                                    <!-- <td style="padding: 0.3rem 0.25rem 0.25rem;"> -->
+                                    <td>
+                                        <button type="button" class="d-inline btn btn-primary btn-sm b-btn"><i class="fas fa-user-edit"></i></button>
+                                        <button type="button" class="d-inline btn btn-danger btn-sm b-btn"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>    
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>    
     </div>
 </div>

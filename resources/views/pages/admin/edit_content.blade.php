@@ -13,6 +13,9 @@
         @endif
         @csrf
         <div class="card">
+            <div class="card-header card-mod-back">
+                <h5 class="add-category">WebSite's Overall Information and update</h5>
+            </div>
             <div class="card-body b-card-body bg-light rounded px-2 px-md-3 py-1 py-md-1" style="font-size: 0.9rem">
                 <div class="row">
                 <div class="col-12 col-md-6">

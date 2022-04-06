@@ -12,18 +12,21 @@
             </div>
         @endif
         @csrf
-        <div class="card mb-2">
+        <div class="card mb-3 add-product">
+            <div class="card-header card-mod-back">
+                <h5 class="add-category">Insert Product Information</h5>
+            </div>
             <div class="card-body b-card-body bg-light rounded px-2 px-md-3 py-1 py-md-1" style="font-size: 0.9rem">
                 <div class="row">
                 <div class="col-12 col-md-6">
-                    <div class="mb-3">
+                    <div class="mb-1">
                         <label for="ProductName" class="form-label"><strong>Product Name</strong></label>
                         <input type="text" name="productName" class="form-control form-control-sm" id="ProductName" aria-describedby="ProductName">
                         <span class="text-danger">@error('ProductName') {{ $message }} @enderror</span>
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
-                    <div class="mb-3">
+                    <div class="mb-2">
                         <label for="categoryType" class="form-label"><strong>Category Type</strong></label>
                         <select name="categoryType" class="form-select form-select-sm" aria-label="Default select sliderStatus" id="categoryType">
                             <option selected>Instrumental</option>
@@ -35,29 +38,29 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
-                    <div class="mb-3">
+                    <div class="mb-2">
                         <label for="prductShortDesc" class="form-label"><strong>Product Short Description</strong></label>
                         <textarea name="prductShortDesc" class="form-control" id="prductShortDesc" style="height: 89px"></textarea>
                     </div>
                     <span class="text-danger">@error('prductShortDesc') {{ $message }} @enderror</span>
                 </div>
                 <div class="col-12 col-md-6">
-                    <div class="mb-3">
+                    <div class="mb-2">
                         <label for="productDesc" class="form-label"><strong>Product Description</strong></label>
                         <textarea name="productDesc" class="form-control" id="productDesc"></textarea>
                         <span class="text-danger">@error('productDesc') {{ $message }} @enderror</span>
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
-                    <div class="mb-3">
+                    <div class="mb-2">
                         <label for="ProductCover" class="form-label"><strong>Cover Image</strong></label>
                         <input type="file" name="productCover" class="form-control form-control-sm" id="ProductCover" aria-describedby="ProductCover" accept="image/*" onchange="loadFile(event)">
                         <span class="text-danger">@error('ProductCover') {{ $message }} @enderror</span>
-                        <img id="output1" src="" style="max-width: 140px; max-height: 120px; padding-top: 0.5rem"/>
+                        <img id="output1" src="" style="display: none; max-width: 140px; max-height: 120px; padding-top: 0.5rem"/>
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
-                    <div class="mb-3">
+                    <div class="mb-2">
                         <label for="prodMultipleImage" class="form-label"><strong>Other Images</strong></label>
                         <input type="file" name="prodMultipleImage" class="form-control form-control-sm" id="prodMultipleImage" aria-describedby="prodMultipleImage" multiple="">
                         <span class="text-danger">@error('prodMultipleImage') {{ $message }} @enderror</span>  
@@ -85,7 +88,7 @@
     
     <div class="product-list">
         <div class="row">
-            <div class="col-12 col-md-9">
+            <div class="col-12">
                 <div class="card">
                     <div class="card-body b-card-body bg-light rounded px-2 px-md-3 py-1 py-md-1" style="font-size: 0.9rem">
                         <table style="font-size: 0.9rem">

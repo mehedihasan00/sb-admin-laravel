@@ -1,6 +1,6 @@
-// $(document).ready(function() {
-//     $('#example').DataTable();
-// } );
+function confirmDel() {
+   return confirm("Are you sure you want to delete?");
+}
 function logOut(url) {
    var log = confirm("Do you wan't to log out?");
    if(log == true) {
