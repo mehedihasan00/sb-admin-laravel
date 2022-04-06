@@ -31,13 +31,10 @@
                
             </div>
         </div>
-        
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="{{ asset('backend/js/mult-image.js') }}"></script>
         <script src="{{ asset('backend/js/time.js') }}"></script>
-        <script src="{{ asset('widget.time.is/t.js') }}"></script>
         <script src="{{ asset('js/script.js') }}"></script>
-        <script>
-            time_is_widget.init({Dhaka_z412:{time_format:"12hours:minutesAMPM"}});
-        </script>
         <script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="{{ asset('backend/js/scripts.js') }}"></script>

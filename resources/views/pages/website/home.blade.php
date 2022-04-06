@@ -1,5 +1,4 @@
   @extends('layouts.master_home')
-
       <!-- About Us -->
       @section('home_content')
       @php

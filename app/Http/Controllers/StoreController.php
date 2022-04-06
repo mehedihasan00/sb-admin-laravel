@@ -14,6 +14,11 @@ class StoreController extends Controller
         return $contents;
     }
 
+    public function sliderUpdate(Request $request) {
+        return $request;
+    }
+
+
     public function homeViewUpdate(Request $request, $id) {
         $validatedData = $request->validate([
             'companyAddress' => 'required|min:4',

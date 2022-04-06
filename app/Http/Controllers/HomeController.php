@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Admin;
+use App\Models\CompanyInfo;
 
 class HomeController extends Controller
 {
@@ -16,7 +17,19 @@ class HomeController extends Controller
 
     public function edit_content() {
         $data = ['LoggedUserInfo' => Admin::where('id', '=', session('LoggedUser'))->first()];
-        return view('pages.admin.edit_content', compact('data'));
+        $companyInfo = CompanyInfo::where('id', '=', '1')->first();
+
+        return view('pages.admin.edit_content', compact('data', 'companyInfo'));
+    }
+
+    public function edit_slider() {
+        return view('pages.admin.edit_slider');
+    }
+    public function product() {
+        return view('pages.admin.product');
+    }
+    public function category() {
+        return view('pages.admin.category');
     }
 
     public function chart() {
