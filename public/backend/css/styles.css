@@ -11856,8 +11856,8 @@ body {
 
 /*Product Information and Insertion*/
 .product-list table th, .product-list table td {
-  padding-left: 3.1rem;
-  padding-right: 3.1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 /* This is multiple image classes */

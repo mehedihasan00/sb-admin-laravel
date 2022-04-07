@@ -5,10 +5,11 @@
         <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
         <li class="breadcrumb-item active">Product</li>
     </ol>
-    <form action="" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('store.product') }}" method="POST" enctype="multipart/form-data">
         @if(Session::get('success'))
-            <div class="alert alert-success">
+            <div class="alert alert-success alert-dismissible fade show">
                 {{ Session::get('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
         @csrf
@@ -29,10 +30,9 @@
                     <div class="mb-2">
                         <label for="categoryType" class="form-label"><strong>Category Type</strong></label>
                         <select name="categoryType" class="form-select form-select-sm" aria-label="Default select sliderStatus" id="categoryType">
-                            <option selected>Instrumental</option>
-                            <option value="">Liquid</option>
-                            <option value="">Gas</option>
-                            <option value="">Frazail</option>
+                            @foreach($categories as $category)
+                            <option value="{{ $category->categoryName }}">{{ $category->categoryName }}</option>
+                            @endforeach
                         </select>
                         <span class="text-danger">@error('categoryType') {{ $message }} @enderror</span>
                     </div>
@@ -62,7 +62,7 @@
                 <div class="col-12 col-md-6">
                     <div class="mb-2">
                         <label for="prodMultipleImage" class="form-label"><strong>Other Images</strong></label>
-                        <input type="file" name="prodMultipleImage" class="form-control form-control-sm" id="prodMultipleImage" aria-describedby="prodMultipleImage" multiple="">
+                        <input type="file" name="prodMultipleImage[]" class="form-control form-control-sm" id="prodMultipleImage" aria-describedby="prodMultipleImage" multiple>
                         <span class="text-danger">@error('prodMultipleImage') {{ $message }} @enderror</span>  
                         <div class="upload__img-wrap"></div>
                         <!-- <div class="upload__box">
@@ -90,30 +90,41 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-body b-card-body bg-light rounded px-2 px-md-3 py-1 py-md-1" style="font-size: 0.9rem">
+                    <div class="card-body b-card-body bg-light rounded px-2 px-md-3 py-1 py-md-1 table-responsive" style="font-size: 0.9rem">
                         <table style="font-size: 0.9rem">
                             <thead>
                                 <tr>
                                     <th>SL</th>
                                     <th>Product Name</th>
-                                    <th>Cover Image</th>
-                                    <th colspan=2>Other Images</th>
+                                    <th>Product Category</th>
+                                    <th>Product Image</th>
+                                    <th>Product Short Description</th>
+                                    <th>Product Long Description</th>
+                                    <th>Other Images</th>
                                     <th>Created At</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @php
+                                    $count = 1;
+                                @endphp
+                                @foreach($products as $product)
                                 <tr>
-                                    <td>1</td>
-                                    <td>23</td>
-                                    <td><img src="" alt="Cover Image" srcset=""></td>
-                                    <td colspan=2><img src="" alt="Other Images" srcset=""></td>
-                                    <td>22/02/22</td>
-                                    <td>
+                                    <td>{{ $count++ }}</td>
+                                    <td>{{ $product->productName }}</td>
+                                    <td>{{ $product->categoryType }}</td>
+                                    <td><img src="{{ asset($product->productCover) }}" alt="Cover Image" style="height: 40px; width: 53px" ></td>
+                                    <td>{{ $product->prductShortDesc }}</td>
+                                    <td>{!! $product->productDesc !!}</td>
+                                    <td><img src="" alt="Other Images" srcset=""></td>
+                                    <td>{{ $product->created_at }}</td>
+                                    <td class="d-flex gap-1">
                                         <button type="button" class="d-inline btn btn-primary btn-sm b-btn"><i class="fas fa-user-edit"></i></button>
                                         <button type="button" class="d-inline btn btn-danger btn-sm b-btn"><i class="fas fa-trash"></i></button>
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>    
                         </table>
                     </div>

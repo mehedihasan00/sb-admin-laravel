@@ -6,6 +6,10 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TempController;
 use App\Http\Controllers\StoreController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SliderController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\WebContentController;
 use Illuminate\Support\Facades\DB;
 /*
 |--------------------------------------------------------------------------
@@ -41,28 +45,35 @@ Route::get('auth/logout', [MainController::class, 'logout'])->name('auth.logout'
 
 
 // route for uploads
-// Route::get('/home/all', [StoreController::class, 'AllContent'])->name('store.all');
-// Call this route from admin dashboard routes
-Route::post('/home/update/{id}', [StoreController::class, 'homeViewUpdate']);
-// Category Crud Route
-Route::post('category/insert', [StoreController::class, 'categoryInsert'])->name('store.category');
-Route::get('category/edit/{id}', [StoreController::class, 'categoryEdit'])->name('edit.category');
-Route::get('category/delete/{id}', [StoreController::class, 'categoryDelete']);
-// Slider Insert part
-Route::get('slider/all', [SliderController::class, 'slider'])->name('slider.all');
-Route::post('slider/insert', [StoreController::class, 'sliderInsert'])->name('store.slider');
+
+
+// Webcontent Route
+Route::post('/webcontent/update/{id}', [WebContentController::class, 'webcontentUpdate']);
+
+// Category Route
+Route::post('category/insert', [CategoryController::class, 'categoryInsert'])->name('store.category');
+Route::get('category/edit/{id}', [CategoryController::class, 'categoryEdit'])->name('edit.category');
+Route::get('category/delete/{id}', [CategoryController::class, 'categoryDelete']);
+
+// Slider part
+Route::post('slider/insert', [SliderController::class, 'sliderInsert'])->name('store.slider');
+//Route::post('slider/delete', [SliderController::class, 'sliderInsert'])->name('store.slider');
+
+// Product Route
+Route::post('product/insert', [ProductController::class, 'productInsert'])->name('store.product');
+Route::post('product/delete/{id}', [ProductController::class, 'productDelete'])->name('delete.product');
 
 // Middleware
 Route::group(['middleware'=>['AuthCheck']], function() {
     Route::get('/auth/login', [MainController::class, 'login'])->name('auth.login');
-    // Route::get('auth/register', [MainController::class, 'register'])->name('auth.register');
+    //Route::get('auth/register', [MainController::class, 'register'])->name('auth.register');
     
     // Dashboard Route
     Route::get('/admin/dashboard', [HomeController::class, 'dashboard']);
-    Route::get('/admin/editContent', [HomeController::class, 'edit_content']);
-    Route::get('/admin/slider', [HomeController::class, 'slider']);
-    Route::get('/admin/category', [HomeController::class, 'category']);
-    Route::get('/admin/product', [HomeController::class, 'product']);
+    Route::get('/admin/webcontent', [WebContentController::class, 'webcontent']);
+    Route::get('/admin/slider', [SliderController::class, 'slider']);
+    Route::get('/admin/category', [CategoryController::class, 'category']);
+    Route::get('/admin/product', [ProductController::class, 'product']);
     Route::get('/admin/chart', [HomeController::class, 'chart']);
     Route::get('/admin/registration', [HomeController::class, 'userRegistration']);
     Route::get('/admin/form', [HomeController::class, 'form']);

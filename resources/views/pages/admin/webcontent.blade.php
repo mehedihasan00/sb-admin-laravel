@@ -5,13 +5,16 @@
         <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
         <li class="breadcrumb-item active">Company Contents</li>
     </ol>
-    <form action="{{ url('/home/update/'.'1') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ url('webcontent/update/'.$companyInfo->id) }}" method="POST" enctype="multipart/form-data">
         @if(Session::get('success'))
-            <div class="alert alert-success">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ Session::get('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
         @csrf
+
+        <input type="hidden" name="">
         <div class="card">
             <div class="card-header card-mod-back">
                 <h5 class="add-category">WebSite's Overall Information and update</h5>

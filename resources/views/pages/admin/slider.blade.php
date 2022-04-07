@@ -3,9 +3,15 @@
 <div class="container-fluid px-4">
     <ol class="breadcrumb my-2 nav-path">
         <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-        <li class="breadcrumb-item active">Add Slider</li>
+        <li class="breadcrumb-item active">Slider</li>
     </ol>
     <div class="row">
+                @php 
+                    // $sliders as $slider
+                    //echo $slider->id; 
+                    //echo "<br>";
+                    //echo "<br>";
+                @endphp
         <div class="col-12 col-lg-6 mb-md-3">
             <form action="{{ url('slider/insert') }}" method="POST" enctype="multipart/form-data">
                 @if(Session::get('success'))
@@ -66,17 +72,26 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @php $count = 1; @endphp
+                                @foreach($sliders as $slider)
                                 <tr>
-                                    <td>1</td>
-                                    <td>System Architect</td>
-                                    <td><img src="{{ asset('C:\xampp\tmp\php82FA.tmp') }}" alt=""></td>
-                                    <td>On</td>
+                                    <td>{{ $count++ }}</td>
+                                    <td>{{ $slider->sliderTitle }}</td>
+                                    <td><img src="{{ asset($slider->sliderImage) }}" alt="" style="height: 33px; width: 50px;"></td>
+                                    <td>
+                                        @if($slider->sliderStatus == 0) 
+                                            <span>off</span>
+                                        @else 
+                                            <span>On</span>
+                                        @endif
+                                    </td>
                                     <!-- <td style="padding: 0.3rem 0.25rem 0.25rem;"> -->
                                     <td>
                                         <button type="button" class="d-inline btn btn-primary btn-sm b-btn"><i class="fas fa-user-edit"></i></button>
-                                        <button type="button" class="d-inline btn btn-danger btn-sm b-btn"><i class="fas fa-trash"></i></button>
+                                        <button type="button" onclick="window.location.href='{{ asset('delete/product') }}'" class="d-inline btn btn-danger btn-sm b-btn"><i class="fas fa-trash"></i></button>
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>    
                         </table>
                     </div>

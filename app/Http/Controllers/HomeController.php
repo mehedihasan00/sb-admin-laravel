@@ -15,25 +15,7 @@ class HomeController extends Controller
         $count = count($count);
         return view('pages.admin.index', compact('data', 'count'));
     }
-
-    public function edit_content() {
-        $data = ['LoggedUserInfo' => Admin::where('id', '=', session('LoggedUser'))->first()];
-        $companyInfo = CompanyInfo::where('id', '=', '1')->first();
-
-        return view('pages.admin.edit_content', compact('data', 'companyInfo'));
-    }
-
-    public function slider() {
-        return view('pages.admin.slider');
-    }
-    public function product() {
-        return view('pages.admin.product');
-    }
-    public function category() {
-        $categories = Category::orderBy('id', 'DESC')->get();
-        return view('pages.admin.category', compact('categories'));
-    }
-
+    
     public function chart() {
         $data = ['LoggedUserInfo' => Admin::where('id', '=', session('LoggedUser'))->first()];
         return view('pages.admin.chart', compact('data'));
