@@ -16,7 +16,7 @@ class WebContentController extends Controller
     }
 
     public function webcontentUpdate(Request $request, $id) {
-        $validatedData = $request->validate([
+        // $validatedData = $request->validate([
             // 'companyAddress' => 'required|min:4',
             // 'facebookLink' => 'required|min:6',
             // 'linkedInLink' => 'required|min:6',
@@ -29,24 +29,24 @@ class WebContentController extends Controller
             // 'chairmanMessage' => 'required|min:12',
             // 'aboutImage' => 'mimes:jpeg,jpg,png,gif|required',
             // 'aboutCompany' => 'required|min:12'
-        ]);
+        // ]);
 
-        $companyLogo = $request->file('companyLogo');
-        $aboutImage = $request->file('aboutImage');
-        $chairmanImage = $request->file('chairmanImage');
+        // $companyLogo = $request->file('companyLogo');
+        // $aboutImage = $request->file('aboutImage');
+        // $chairmanImage = $request->file('chairmanImage');
 
         $CompanyInfo = CompanyInfo::find($id);
         $CompanyInfo->companyAddress = $request->companyAddress;
         $CompanyInfo->facebookLink = $request->facebookLink;
-        $CompanyInfo->linkedInLink = $request->address;
-        $CompanyInfo->twitterLink = $request->medical_address;
-        $CompanyInfo->instagramLink = $request->opening_hour;
-        $CompanyInfo->companyName = $request->phone;
-        $CompanyInfo->chairmanName = $request->logo_title;
-        $CompanyInfo->chairmanMessage = $request->facebook;
-        $CompanyInfo->aboutCompany = $request->twitter;
-        $CompanyInfo->updated_at = $request->instagram;
-
+        $CompanyInfo->linkedInLink = $request->linkedInLink;
+        $CompanyInfo->twitterLink = $request->twitterLink;
+        $CompanyInfo->instagramLink = $request->instagramLink;
+        $CompanyInfo->companyName = $request->companyName;
+        $CompanyInfo->chairmanName = $request->chairmanName;
+        $CompanyInfo->chairmanMessage = $request->chairmanMessage;
+        $CompanyInfo->aboutCompany = $request->aboutCompany;
+        $CompanyInfo->updated_at = $request->updated_at;
+        // CompanyLogo
         $companyLogo = $request->file('companyLogo');
         if($companyLogo){
             $companyLogoName = date('YmdHi').$companyLogo->getClientOriginalName();
@@ -54,16 +54,48 @@ class WebContentController extends Controller
             if(file_exists('frontend/assets/img/upload/'.$CompanyInfo->companyLogo) AND !empty($CompanyInfo->companyLogo)){
                 unlink('frontend/assets/img/upload/'.$CompanyInfo->companyLogo);
             }
-            $companyLogo = $companyLogoName;
+            $companyLogo = 'frontend/assets/img/upload/' . $companyLogoName;
         }
         else
         {
             $companyLogo = $CompanyInfo->companyLogo; 
         }
         $CompanyInfo->companyLogo = $companyLogo;
-        $CompanyInfo->save();
 
-        
+        // aboutImage
+        $aboutImage = $request->file('aboutImage');
+        if($aboutImage){
+            $aboutImageName = date('YmdHi').$aboutImage->getClientOriginalName();
+            $aboutImage->move('frontend/assets/img/upload/', $aboutImageName);
+            if(file_exists('frontend/assets/img/upload/'.$CompanyInfo->aboutImage) AND !empty($CompanyInfo->aboutImage)){
+                unlink('frontend/assets/img/upload/'.$CompanyInfo->aboutImage);
+            }
+            $aboutImage = 'frontend/assets/img/upload/' . $aboutImageName;
+        }
+        else
+        {
+            $aboutImage = $CompanyInfo->aboutImage; 
+        }
+        $CompanyInfo->aboutImage = $aboutImage;
+
+        //chairmanImage
+        $chairmanImage = $request->file('chairmanImage');
+        if($chairmanImage){
+            $chairmanImageName = date('YmdHi').$chairmanImage->getClientOriginalName();
+            $chairmanImage->move('frontend/assets/img/upload/', $chairmanImageName);
+            if(file_exists('frontend/assets/img/upload/'.$CompanyInfo->chairmanImage) AND !empty($CompanyInfo->chairmanImage)){
+                unlink('frontend/assets/img/upload/'.$CompanyInfo->chairmanImage);
+            }
+            $chairmanImage = 'frontend/assets/img/upload/' . $chairmanImageName;
+        }
+        else
+        {
+            $chairmanImage = $CompanyInfo->chairmanImage; 
+        }
+        $CompanyInfo->chairmanImage = $chairmanImage;
+
+
+        $CompanyInfo->save();
         return Redirect()->back()->with("success", "Update successfull");
         
 
