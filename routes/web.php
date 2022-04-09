@@ -48,7 +48,7 @@ Route::get('auth/logout', [MainController::class, 'logout'])->name('auth.logout'
 
 
 // Webcontent Route
-Route::post('/webcontent/update/{id}', [WebContentController::class, 'webcontentUpdate']);
+Route::post('/webcontent/update/{id}', [WebContentController::class, 'webcontentUpdate'])->name('company.profile.update');
 
 // Category Route
 Route::post('category/insert', [CategoryController::class, 'categoryInsert'])->name('store.category');
@@ -57,6 +57,8 @@ Route::get('category/delete/{id}', [CategoryController::class, 'categoryDelete']
 
 // Slider part
 Route::post('slider/insert', [SliderController::class, 'sliderInsert'])->name('store.slider');
+Route::get('slider/edit/{id}', [SliderController::class, 'sliderEdit'])->name('edit.slider');
+Route::post('slider/update/{id}', [SliderController::class, 'sliderUpdate']);
 //Route::post('slider/delete', [SliderController::class, 'sliderInsert'])->name('store.slider');
 
 // Product Route

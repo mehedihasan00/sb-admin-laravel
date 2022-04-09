@@ -87,7 +87,7 @@
                                     </td>
                                     <!-- <td style="padding: 0.3rem 0.25rem 0.25rem;"> -->
                                     <td>
-                                        <button type="button" class="d-inline btn btn-primary btn-sm b-btn"><i class="fas fa-user-edit"></i></button>
+                                        <button type="button" onclick="window.location.href='{{ asset('slider/edit/'. $slider->id) }}'" class="d-inline btn btn-primary btn-sm b-btn"><i class="fas fa-user-edit"></i></button>
                                         <button type="button" onclick="window.location.href='{{ asset('delete/product') }}'" class="d-inline btn btn-danger btn-sm b-btn"><i class="fas fa-trash"></i></button>
                                     </td>
                                 </tr>

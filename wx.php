@@ -23,13 +23,12 @@ function update(Request $request, $id)
             if(file_exists('backend/images/logo/'.$setting->logo) AND !empty($setting->logo)){
                 unlink('backend/images/logo/'.$setting->logo);
             }
-            $logo = $imgName;
+            $setting['logo'] = $imgName;
         }
         else
         {
-            $logo = $setting->logo; 
+            $setting['logo'] = $setting->logo; 
         }
-        $setting->logo = $logo;
         $setting->save();
 
         

@@ -13,7 +13,8 @@ class ProductController extends Controller
     public function product() {
         $products = Product::orderBy('id', 'desc')->get();
         $categories = Category::select('categoryName')->get();
-        return view('pages.admin.product', compact('products', 'categories'));
+        $multImages = ProductMultiple::orderBy('id', 'desc')->get();
+        return view('pages.admin.product', compact('products', 'categories', 'multImages'));
     }
     public function productInsert(Request $request) {
 
@@ -32,29 +33,25 @@ class ProductController extends Controller
             'productDesc' => $request->productDesc,
             'productCover' => $productCover_lastImg,
             'created_at' => Carbon::now(),
-            // do modification |>
-            //'prodMultipleImage' => $prodMultipleImage,
         ]);
 
-        $image = array();
-        if($prodMultipleImage = $request->file('prodMultipleImage')){
-            foreach($prodMultipleImage as $prodImage){
-                //$image_name = md5(rand(1000,10000));
-                $image_name = hexdec(uniqid());
-                $ext = strtolower($prodImage->getClientOriginalExtension());
-                $image_full_name = $image_name.'.'.$ext;
-                $uploade_path = 'frontend/assets/img/upload/product/mult/';
-                $image_url = $uploade_path.$image_full_name;
-                $prodImage->move($uploade_path,$image_full_name);
-                $image[] = $image_url;
-            }
+        $prodMultipleImage = $request->file('prodMultipleImage');
+        foreach($prodMultipleImage as $prodImage) {
+            $image_name = hexdec(uniqid());
+            $image_ext = strtolower($prodImage->getClientOriginalExtension());
+            $image_full_name = $image_name.'.'.$image_ext;
+            $upload_path = 'frontend/assets/img/upload/product/mult/';
+            $image_url = $upload_path.$image_full_name;
+            $prodImage->move($upload_path, $image_full_name);
+
+            // Product Id
+            $productId = Product::orderBy('id', 'DESC')->first();
             ProductMultiple::insert([
-                
-                'prodMultipleImage' => implode('|', $image),
+                'productId' => $productId->id,
+                'prodMultipleImage' => $image_url,
                 'created_at' => Carbon::now(),
             ]);
         }
-        
         return Redirect()->back()->with('success', 'product inserted!');
     }
 

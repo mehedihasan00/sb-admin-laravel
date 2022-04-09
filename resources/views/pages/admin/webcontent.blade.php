@@ -5,7 +5,7 @@
         <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
         <li class="breadcrumb-item active">Company Contents</li>
     </ol>
-    <form action="{{ url('webcontent/update/'.$companyInfo->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('company.profile.update', $companyInfo->id) }}" method="POST" enctype="multipart/form-data">
         @if(Session::get('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ Session::get('success') }}
@@ -41,7 +41,7 @@
                         <input type="file" name="companyLogo" class="form-control form-control-sm" id="companyLogo" aria-describedby="companyLogo" accept="image/*" onchange="loadFile(event)">
                         <span class="text-danger">@error('companyLogo') {{ $message }} @enderror</span>
                         @if(isset($companyInfo->companyLogo))
-                        <img id="output1" src="{{ asset($companyInfo->companyLogo) }}" style="max-width: 140px; max-height: 120px; padding-top: 0.5rem"/>
+                        <img id="output1" src="{{ asset('frontend/assets/img/upload/'.$companyInfo->companyLogo) }}" style="max-width: 140px; max-height: 120px; padding-top: 0.5rem"/>
                         @endif
                     </div>
                 </div>
@@ -51,7 +51,7 @@
                         <input type="file" name="aboutImage" class="form-control form-control-sm" id="aboutImage" aria-describedby="aboutImage" accept="image/*" onchange="loadFile2(event)">
                         <span class="text-danger">@error('aboutImage') {{ $message }} @enderror</span>
                         @if(isset($companyInfo->aboutImage))
-                        <img id="output2" src="{{ asset($companyInfo->aboutImage) }}" style="max-width: 140px; max-height: 120px; padding-top: 0.5rem"/>
+                        <img id="output2" src="{{ asset('frontend/assets/img/upload/' .$companyInfo->aboutImage) }}" style="max-width: 140px; max-height: 120px; padding-top: 0.5rem"/>
                         @endif
                     </div>
                 </div>                   
@@ -111,7 +111,7 @@
                         <input type="file" name="chairmanImage" class="form-control form-control-sm" id="chairmanImage" placeholder="Chairman Image" accept="image/*" onchange="loadFile3(event)">
                         <span class="text-danger">@error('chairmanImage') {{ $message }} @enderror</span>
                         @if(isset($companyInfo->chairmanImage))
-                        <img id="output3" src="{{ asset($companyInfo->chairmanImage) }}" style="max-width: 140px; max-height: 120px; padding-top: 0.5rem"/>
+                        <img id="output3" src="{{ asset('frontend/assets/img/upload/' .$companyInfo->chairmanImage) }}" style="max-width: 140px; max-height: 120px; padding-top: 0.5rem"/>
                         @endif
                     </div>     
                 </div>

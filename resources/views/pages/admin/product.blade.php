@@ -100,7 +100,7 @@
                                     <th>Product Image</th>
                                     <th>Product Short Description</th>
                                     <th>Product Long Description</th>
-                                    <th>Other Images</th>
+                                    <th colspan="2">Other Images</th>
                                     <th>Created At</th>
                                     <th>Action</th>
                                 </tr>
@@ -117,7 +117,9 @@
                                     <td><img src="{{ asset($product->productCover) }}" alt="Cover Image" style="height: 40px; width: 53px" ></td>
                                     <td>{{ $product->prductShortDesc }}</td>
                                     <td>{!! $product->productDesc !!}</td>
-                                    <td><img src="" alt="Other Images" srcset=""></td>
+                                    <td colspan="2">
+                                        <img src="" alt="Other Images" srcset="" style="width: 15px; height: 15px">
+                                    </td>
                                     <td>{{ $product->created_at }}</td>
                                     <td class="d-flex gap-1">
                                         <button type="button" class="d-inline btn btn-primary btn-sm b-btn"><i class="fas fa-user-edit"></i></button>
